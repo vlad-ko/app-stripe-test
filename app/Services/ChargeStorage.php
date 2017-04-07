@@ -9,7 +9,7 @@ use DB;
 use App\Services\ChargeParser;
 
 /**
- * This service stores the reponse
+ * This service stores the response
  * from Stripe API in MySQL
  */
 class ChargeStorage {

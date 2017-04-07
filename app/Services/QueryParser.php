@@ -12,11 +12,13 @@ class QueryParser {
 	 */
 	protected $operands = [
 		'=' => '=',
+		'[ne]' => '!=',
 		'[gt]' => '>',
 		'[gte]' => '>=',
 		'[lt]' => '<',
 		'[lte]' => '<=',
 		'[like]' => 'like',
+		'[not_like]' => 'not like'
 	];
 
 	/**
@@ -54,7 +56,7 @@ class QueryParser {
 
 			//make the string variable for LIKE query
 			//NOTE: '%' in the front of string slows down performance
-			if ($operator == 'like') {
+			if ($operator == 'like' || $operator == 'not like') {
 				$value = '%' . $value . '%';
 			}
 
