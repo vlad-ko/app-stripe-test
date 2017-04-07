@@ -24,7 +24,7 @@ class QueryParserTest extends TestCase
     public function testConvertToEloquent()
     {
         //let's try parsing a string like this one
-        $queryString = 'from[gt]2014-03-05&to[lte]2014-06-01&amount[gte]50&object=charge&description[like]this';
+        $queryString = 'from[gt]2014-03-05&to[lte]2014-06-01&amount[gte]50&object=charge&description[like]this&but[not_like]that&value[ne]666';
         $expected = [
             [
                 'created',
@@ -50,6 +50,16 @@ class QueryParserTest extends TestCase
                 'description',
                 'like',
                 '%this%',
+            ],
+            [
+                'but',
+                'not like',
+                '%that%',
+            ],
+            [
+                'value',
+                '!=',
+                '666',
             ],
         ];
 
