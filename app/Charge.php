@@ -9,7 +9,7 @@ class Charge extends Model
 	use \Stevebauman\EloquentTable\TableTrait;
 
 	/**
-	 * define constant string for
+	 * define constants and strings for
 	 * various states
 	 */
 	const STATUS_SUCCESS = 'succeeded';

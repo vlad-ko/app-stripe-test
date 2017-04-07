@@ -17,8 +17,13 @@ class QueryParserTest extends TestCase
         $this->parser = new QueryParser;
     }
 
+    /**
+     * Test parsing of the URL query string
+     * @return void
+     */
     public function testConvertToEloquent()
     {
+        //let's try parsing a string like this one
         $queryString = 'from[gt]2014-03-05&to[lte]2014-06-01&amount[gte]50&object=charge&description[like]this';
         $expected = [
             [
