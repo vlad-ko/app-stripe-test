@@ -11,4 +11,10 @@
 |
 */
 
-Route::get('/', 'AppController@index');
+Route::get('/', 'ReportsController@index');
+
+/**
+ * Main reporting function which will accept a number
+ * of parameters, parse them and attempt to return data.
+ */
+Route::get('/report/{queryParams}', 'ReportsController@report');

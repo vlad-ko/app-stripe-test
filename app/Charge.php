@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Charge extends Model
 {
+	use \Stevebauman\EloquentTable\TableTrait;
+
 	/**
 	 * define constant string for
 	 * various states
@@ -41,5 +43,16 @@ class Charge extends Model
     public function refund()
     {
         return $this->hasMany('App\Refund');
+    }
+
+    /**
+     * Get data to populate the report table
+     *
+     * @return array data for the report
+     */
+    public function getDataForReport()
+    {
+    	$data = Charge::with('outcome')->get();
+        return $data;
     }
 }
