@@ -63,7 +63,20 @@ class QueryParserTest extends TestCase
             ],
         ];
 
-        $eloquentConditions = $this->parser->parse($queryString)->convertToEloquent();
+        list($eloquentConditions, $aggregates) = $this->parser->parse($queryString)->convertToEloquent();
         $this->assertEquals($expected, $eloquentConditions);
+        $this->assertEmpty($aggregates);
+    }
+
+    public function testConvertToEloquentWithAggregates()
+    {
+        //include aggregate values in query string
+        $queryString = 'sum=amount';
+        list($eloquentConditions, $aggregates) = $this->parser->parse($queryString)->convertToEloquent();
+        $expected = [
+            'function' => 'sum',
+            'field' => 'amount'
+        ];
+        $this->assertEquals($expected, $aggregates);
     }
 }

@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
-
 use App\Charge;
 use App\Http\Controllers\Controller;
 use App\Services\QueryParser;
 
-
+/**
+ * Main controller to process "charges"
+ */
 class ReportsController extends Controller
 {
 	/**
-	 * will be used to view the chages table
+	 * will be used to view the charges table
 	 */
 	public function index()
 	{
@@ -31,8 +33,16 @@ class ReportsController extends Controller
 	public function report($queryParams)
 	{
 		$parser = new QueryParser;
-		$conditions = $parser->parse($queryParams)->convertToEloquent();
-		$result = Charge::where($conditions)->get()->toArray();
+		list($conditions, $aggregates) = $parser->parse($queryParams)->convertToEloquent();
+		$query = DB::table('charges')->where($conditions);
+
+		// run  query with function (i.e. SUM()) and get result
+		// else we run the query as normal and get results in array format
+		if (!empty($aggregates)) {
+			$result = $query->{$aggregates['function']}($aggregates['field']);
+		} else {
+			$result = $query->get()->toArray();
+		}
 
 		return json_encode($result);
 	}

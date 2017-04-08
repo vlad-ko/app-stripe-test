@@ -7,8 +7,20 @@ namespace App\Services;
  * for various charges
  */
 class QueryParser {
+
+	/**
+	 * Available aggreagates
+	 *
+	 * @var array
+	 */
+	protected  $aggregates = [
+		'count', 'max', 'min', 'avg', 'sum'
+	];
+
 	/**
 	 * Necessary operands to build SQL queries
+	 *
+	 * @var array
 	 */
 	protected $operands = [
 		'=' => '=',
@@ -45,10 +57,13 @@ class QueryParser {
 	 * Sort our query params conditions into eloquent format
 	 * [COLUMN, OPERATOR, VALUE]
 	 *
-	 * @return array formatted conditions array for use in Eloquent queries
+	 * @return array formatted conditions and aggregates array
+	 * to use in Eloquent queries
 	 */
 	public function convertToEloquent()
 	{
+		$aggregates = [];
+		$eloquentConditions = [];
 		foreach ($this->conditions as $key => $row) {
 			$column = $row[0];
 			$value = $row[1];
@@ -66,9 +81,16 @@ class QueryParser {
 				$column = 'created';
 			}
 
-			$eloquentConditions[$key] = [$column, $operator, $value];
-
+			//are we trying to execute one of the aggregates?
+			//prep aggregates for query builder / else add to conditions
+			if (in_array($column, $this->aggregates)) {
+				$aggregates['function'] = $column;
+				$aggregates['field'] = $value;
+			} else {
+				$eloquentConditions[$key] = [$column, $operator, $value];
+			}
 		}
-		return $eloquentConditions;
+
+		return [$eloquentConditions, $aggregates];
 	}
 }
