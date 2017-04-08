@@ -42,6 +42,7 @@ Change to your working app directory and run ```composer update```.
 
 ```
 cd /srv/app-stripe-test
+composer update
 ```
 Once all the necessary dependencies are pulled down, let's setup the ```.env``` file.
 You will have to ```cp .env.example .env```
