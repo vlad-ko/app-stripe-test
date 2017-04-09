@@ -10,6 +10,13 @@ use App\Services\ChargeStorage;
  */
 class ChargeParser {
 
+	/**
+	 * keeps count of how many records
+	 * were processed
+	 * @var int
+	 */
+	protected  $chargesProcessed;
+
 	const OUTCOMES_KEY = 'outcome';
 	const REFUNDS_KEY = 'refunds';
 	const SOURCE_KEY = 'source';
@@ -25,9 +32,12 @@ class ChargeParser {
 	 */
 	public function process($charges)
 	{
+		$this->chargesProcessed = count($charges['data']);
 		foreach($charges['data'] as $response) {
 			$this->processEachResponse($response);
 		}
+
+		return $this->chargesProcessed;
 	}
 
 	/**
@@ -43,7 +53,12 @@ class ChargeParser {
 		unset($response['id']);
 
 		$storage = new ChargeStorage;
-		$storage->store($response);
+		$result = $storage->store($response);
+		if(!$result) {
+			$this->chargesProcessed = 0;
+		}
+
+		return true;
 	}
 
 }

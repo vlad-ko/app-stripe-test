@@ -59,6 +59,8 @@ class StripeCharges extends Command
         // if run every 24 hrs this will grab all previous charges for the day
         // would need to ensure there is no overlap.
         $charges = Stripe::charges()->all(['limit' => $limit]);
-        $this->chargeParser->process($charges);
+        $chargesProcessed = $this->chargeParser->process($charges);
+        //output processed charges
+        $this->info('['. date('Y-m-d H:i:s') . '] - Total records processed: ' . $chargesProcessed);
     }
 }
