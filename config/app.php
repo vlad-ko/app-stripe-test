@@ -177,7 +177,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
-        Stevebauman\EloquentTable\EloquentTableServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
     ],
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dce58f1d21adf7cfe720d45d119412db",
+    "content-hash": "a85ba71de2573282a15dc866a46ed43a",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1497,50 +1497,6 @@
                 "uuid"
             ],
             "time": "2017-03-26T20:37:53+00:00"
-        },
-        {
-            "name": "stevebauman/eloquenttable",
-            "version": "v1.1.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/stevebauman/eloquent-table.git",
-                "reference": "777c25903319c68655d3b92abac0383a548a45ab"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/stevebauman/eloquent-table/zipball/777c25903319c68655d3b92abac0383a548a45ab",
-                "reference": "777c25903319c68655d3b92abac0383a548a45ab",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.* | 5.*",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Stevebauman\\EloquentTable\\": "src/Stevebauman/EloquentTable/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Steve Bauman",
-                    "email": "steven_bauman_7@hotmail.com"
-                }
-            ],
-            "description": "An HTML table generator for laravel collections",
-            "keywords": [
-                "eloquent",
-                "html",
-                "laravel",
-                "php",
-                "table"
-            ],
-            "time": "2016-05-11T16:18:33+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

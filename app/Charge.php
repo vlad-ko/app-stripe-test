@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Charge extends Model
 {
-	use \Stevebauman\EloquentTable\TableTrait;
 
 	/**
 	 * define constants and strings for
@@ -52,7 +51,7 @@ class Charge extends Model
      */
     public function getDataForReport()
     {
-    	$data = Charge::with('outcome')->get();
+    	$data = Charge::with('outcome')->get()->toArray();
         return $data;
     }
 }
