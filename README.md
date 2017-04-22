@@ -1,6 +1,6 @@
 # Laravel 5.4 app, for working with Stripe API
 
-# Installation instuctions 
+# Installation instructions 
 
 I presume that you have Laravel's Homestead working, or can run 
 a Laravel app in your local environment.
