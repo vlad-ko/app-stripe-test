@@ -25,4 +25,4 @@ script:
   - vendor/bin/phpunit --log-junit report.xml
 
 after_success:
-    - bash <(curl -s https://codecov.io/bash)
+    - bash -f report.xml <(curl -s https://codecov.io/bash)

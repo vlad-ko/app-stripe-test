@@ -1,2 +1,5 @@
 service_name: travis-pro
 repo_token: Kd4eAxYN3SXLsbSEhbMmEFYhgxuIKn1eh
+
+
+-f path/to/coverage/report.xml
