@@ -28,6 +28,9 @@
             <th class="header">
                 Description
             </th>
+            <th class="header">
+                Receipt Email
+            </th>
         </thead>
         <tbody>
         @foreach ($charges as $charge)
@@ -36,6 +39,7 @@
                 <td>{{ $charge['object'] }}</td>
                 <td>${{ number_format($charge['amount']/100, 2, '.', ',') }}</td>
                 <td>{{ $charge['description'] }}</td>
+                <td>{{ $charge['receipt_email'] }}</td>
             </tr>
         @endforeach
         </tbody>

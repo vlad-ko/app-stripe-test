@@ -1,6 +1,6 @@
 # Laravel 5.4 app, for working with Stripe API
 
-# Installation instuctions 
+# Installation instructions 
 
 I presume that you have Laravel's Homestead working, or can run 
 a Laravel app in your local environment.
@@ -54,3 +54,8 @@ Finally, in the same directory run: ```php artisan migrate``` to setup the DB.
 
 To pull down some initial data you may use: ```php artisan stripe:charges 50```.
 (The number after the command name is the limit of records, and defaults to 10).
+
+If all goes well, the output should be something like:
+```
+[2017-04-09 14:12:31] - Total records processed: 16
+````
