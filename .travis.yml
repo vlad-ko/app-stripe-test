@@ -22,7 +22,7 @@ before_script:
   - php artisan migrate --no-interaction -vvv
 
 script:
-  - vendor/bin/phpunit --log-junit report.xml
+  - vendor/bin/phpunit --coverage-clover 'clover.xml'
 
 after_success:
-    - bash  <(curl -s https://codecov.io/bash) -f report.xml
+    - bash  <(curl -s https://codecov.io/bash) -f clover.xml
