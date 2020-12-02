@@ -1,11 +1,13 @@
+[![codecov](https://codecov.io/gh/vlad-ko/app-stripe-test/branch/master/graph/badge.svg?token=MP5E9BNSOU)](https://codecov.io/gh/vlad-ko/app-stripe-test)
+
 # Laravel 5.4 app, for working with Stripe API
 
-# Installation instructions 
+# Installation instructions
 
-I presume that you have Laravel's Homestead working, or can run 
+I presume that you have Laravel's Homestead working, or can run
 a Laravel app in your local environment.
 
-First clone the repo from github. 
+First clone the repo from github.
 (Example uses home directory for setup).
 
 ```
