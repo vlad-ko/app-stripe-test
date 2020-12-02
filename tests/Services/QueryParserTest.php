@@ -79,4 +79,9 @@ class QueryParserTest extends TestCase
         ];
         $this->assertEquals($expected, $aggregates);
     }
+
+    public function testThisIsANewOne()
+    {
+        
+    }
 }
