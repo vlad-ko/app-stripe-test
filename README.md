@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/vlad-ko/app-stripe-test/branch/master/graph/badge.svg?token=MP5E9BNSOU)](https://codecov.io/gh/vlad-ko/app-stripe-test)
+
 # Laravel 5.4 app, for working with Stripe API
 
 # Installation instructions 
