@@ -10,7 +10,11 @@ use App\Http\Controllers\ReportsController;
 class ReportsControllerTest extends TestCase {
 
     public function testBasicReport() {
-        $this->action('GET', 'ReportsController@report');
+
+       $result =  $this->call('GET', '/report/from[gt]2014-03-05&to[lte]2014-06-0');
+       $this->assertNotEmpty($result);
+
+
     }
 
 }
