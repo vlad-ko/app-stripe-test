@@ -23,6 +23,10 @@ before_script:
   - composer install --no-interaction
   - php artisan migrate --no-interaction -vvv
 
+jdk:
+  - openjdk11
+  - openjdk-ea
+
 script:
   - vendor/bin/phpunit --coverage-clover=coverage-report.clover --log-junit=test-report.xml
   - sonar-scanner
