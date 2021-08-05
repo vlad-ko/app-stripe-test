@@ -7,7 +7,7 @@ php:
   - 7.2
 
 addons:
-  mariadb: 10.4
+  mariadb: "10.4"
   sonarcloud:
     organization: vlad-ko_app-stripe-test
 
@@ -24,7 +24,5 @@ before_script:
   - php artisan migrate --no-interaction -vvv
 
 script:
-  - vendor/bin/phpunit --coverage-clover 'clover.xml'
-
-after_success:
-    - bash  <(curl -s https://codecov.io/bash) -f clover.xml
+  - vendor/bin/phpunit -c phpunit.xml.dist --coverage-clover=coverage-report.clover --log-junit=test-report.xml
+  - sonar-scanner
