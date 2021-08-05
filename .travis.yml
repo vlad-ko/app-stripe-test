@@ -8,6 +8,8 @@ php:
 
 addons:
   mariadb: 10.4
+  sonarcloud:
+    organization: vlad-ko_app-stripe-test
 
 cache:
   directories:
