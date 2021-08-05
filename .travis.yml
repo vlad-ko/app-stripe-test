@@ -24,5 +24,5 @@ before_script:
   - php artisan migrate --no-interaction -vvv
 
 script:
-  - vendor/bin/phpunit -c phpunit.xml.dist --coverage-clover=coverage-report.clover --log-junit=test-report.xml
+  - vendor/bin/phpunit --coverage-clover=coverage-report.clover --log-junit=test-report.xml
   - sonar-scanner
