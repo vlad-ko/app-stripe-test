@@ -3,7 +3,6 @@ dist: precise
 
 jdk:
   - openjdk11
-  - openjdk-ea
 
 language: php
 
@@ -28,6 +27,6 @@ before_script:
   - php artisan migrate --no-interaction -vvv
 
 script:
-  - dk_switcher use openjdk11
+  - jdk_switcher use openjdk11
   - vendor/bin/phpunit --coverage-clover=coverage-report.clover --log-junit=test-report.xml
   - sonar-scanner
