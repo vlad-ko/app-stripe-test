@@ -58,4 +58,29 @@ class Charge extends Model
     public function uncoveredFunc() {
 		return true;
 	}
+
+    public function complexUncoveredFunction($param = null) {
+        $param = $param;
+        exec($param);
+
+        if ($param > 0) {
+            $param ++;
+        } else {
+            $param = 1000 + 1;
+        }
+
+        switch($param) {
+            case(4):
+                echo 'not working';
+            break;
+
+            case(1001): 
+                $param = "flags";
+            break;
+            
+            default:
+                return 'happy';
+                
+        }
+    }
 }
