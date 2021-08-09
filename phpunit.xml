@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<logging>
+    <log type=”coverage-clover” target=”coverage.xml”/>
+    <log type=”junit” target=”tests-report.xml”/>
+    <junit outputFile="tests-report.xml"/>
+</logging>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
          bootstrap="bootstrap/autoload.php"
