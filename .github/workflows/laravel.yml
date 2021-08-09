@@ -58,13 +58,10 @@ jobs:
               -Dsonar.projectKey=vlad-ko_app-stripe-test
               -Dsonar.php.coverage.reportPaths=coverage.xml
               -Dsonar.sources=app/
-              -Dsonar.test.exclusions=tests/**
-              -Dsonar.tests=tests/
+              -Dsonar.exclusions=vendor/**
               -Dsonar.verbose=true
         env:
-              SONAR_TOKEN: 761a4d39983a27c6250ecb0840c8b2cc031e3da8
-
-      
+              SONAR_TOKEN: 761a4d39983a27c6250ecb0840c8b2cc031e3da8   
 
       - name: Upload overall coverage report
         run: bash <(curl -s https://codecov.io/bash) -f coverage.xml
