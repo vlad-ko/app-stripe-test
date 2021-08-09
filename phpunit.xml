@@ -9,9 +9,9 @@
          processIsolation="false"
          stopOnFailure="false">
     <logging>
-        <log type="coverage-clover" target="reports/coverage.xml"/>
-        <log type="junit" target="reports/tests-report.xml"/>
-        <junit outputFile="reports/tests-report.xml"/>
+        <log type="coverage-clover" target="./reports/coverage.xml"/>
+        <log type="junit" target="./reports/tests-report.xml"/>
+        <junit outputFile="./reports/tests-report.xml"/>
     </logging>
     <testsuites>
         <testsuite name="Feature Tests">

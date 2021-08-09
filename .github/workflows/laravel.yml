@@ -47,7 +47,7 @@ jobs:
           php artisan db:seed
 
       - name: Run Complete Testsuite with Coverage
-        run: vendor/bin/phpunit --coverage-clover coverage-report.xmlsonar
+        run: vendor/bin/phpunit --verbose --coverage-clover coverage-report.xmlsonar
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
