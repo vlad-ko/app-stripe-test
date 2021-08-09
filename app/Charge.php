@@ -60,9 +60,6 @@ class Charge extends Model
 	}
 
     public function complexUncoveredFunction($param = null) {
-        $param = $param;
-        exec($param);
-
         if ($param > 0) {
             $param ++;
         } else {
@@ -80,7 +77,7 @@ class Charge extends Model
             
             default:
                 return 'happy';
-                
+
         }
     }
 }
