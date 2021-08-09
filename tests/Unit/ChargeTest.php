@@ -19,4 +19,12 @@ class ChargeTest extends TestCase
         $chargeModel = new Charge;
         $chargeModel->getDataForReport();
     }
+
+    public function testUndeoverdFunc() 
+    {
+        $chargeModel = new Charge;
+        $r = $chargeModel->uncoveredFunc();
+
+        $this->assertEquals(true, $r);
+    }
 }

@@ -61,7 +61,12 @@ class ChargeParser {
 		return true;
 	}
 
-	public function uncoveredFunc() {
-		return true;
+	public function someOtherFunction() {
+		if (true) {
+			//exectue 
+			echo 'not here';
+		} else {
+			return false;
+		}
 	}
 }
