@@ -62,10 +62,10 @@ jobs:
               -Dsonar.php.coverage.reportPaths=./results/coverage.xml
               -Dsonar.php.tests.reportPath=./results/test-report.xml
               -Dsonar.exclusions=vendor/**
-              -Dsonar.sources=app
-              -Dsonar.verbose=true
+              -Dsonar.sources=app/**
+              -Dsonar.verbose=false
         env:
               SONAR_TOKEN: 761a4d39983a27c6250ecb0840c8b2cc031e3da8   
 
       - name: Upload overall coverage report
-        run: bash <(curl -s https://codecov.io/bash) -f coverage.xml
+        run: bash <(curl -s https://codecov.io/bash) -f ./results/coverage.xml
