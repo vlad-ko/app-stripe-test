@@ -28,19 +28,11 @@ class ChargeTest extends TestCase
         $this->assertEquals(true, $r);
     }
 
-    public function testUndeoverdFunc() 
-    {
-        $chargeModel = new Charge;
-        $r = $chargeModel->uncoveredFunc();
-
-        $this->assertEquals(true, $r);
-    }
-
     public function testComplexUncoveredFunction() 
     {
-            $chargeModel = new Charge;
-            $r = $chargeModel->complexUncoveredFunction(1);
+        $chargeModel = new Charge;
+        $r = $chargeModel->complexUncoveredFunction(1);
 
-            $this->assertEquals('happy', $r);
+        $this->assertEquals('happy', $r);
     }
 }
