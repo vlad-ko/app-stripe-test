@@ -49,11 +49,6 @@ jobs:
       - name: Run Complete Testsuite with Coverage
         run: vendor/bin/phpunit --coverage-clover=coverage.xml --log-junit=test-report.xml
       
-      - name: copy files
-        run: |
-          cp ./coverage.xml /github/workspace/coverage.xml
-          cp ./test-report.xml /github/workspace/test-report.xml
-
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         with:
