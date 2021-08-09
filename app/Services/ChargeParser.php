@@ -61,4 +61,7 @@ class ChargeParser {
 		return true;
 	}
 
+	public function uncoveredFunc() {
+		return true;
+	}
 }
