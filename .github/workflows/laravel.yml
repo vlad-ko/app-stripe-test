@@ -62,7 +62,7 @@ jobs:
               -Dsonar.php.coverage.reportPaths=./results/coverage.xml
               -Dsonar.php.tests.reportPath=./results/test-report.xml
               -Dsonar.exclusions=vendor/**
-              -Dsonar.sources=src
+              -Dsonar.sources=app
               -Dsonar.verbose=true
         env:
               SONAR_TOKEN: 761a4d39983a27c6250ecb0840c8b2cc031e3da8   
