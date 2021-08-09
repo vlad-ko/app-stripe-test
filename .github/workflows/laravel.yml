@@ -61,7 +61,7 @@ jobs:
               -Dsonar.projectKey=vlad-ko_app-stripe-test
               -Dsonar.php.coverage.reportPaths=./results/coverage.xml
               -Dsonar.php.tests.reportPath=./results/test-report.xml
-              -Dsonar.exclusions=vendor/**
+              -Dsonar.exclusions=vendor/**,tests/**
               -Dsonar.verbose=false
         env:
               SONAR_TOKEN: 761a4d39983a27c6250ecb0840c8b2cc031e3da8   
