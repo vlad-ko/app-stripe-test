@@ -48,6 +48,12 @@ jobs:
 
       - name: Run Complete Testsuite with Coverage
         run: vendor/bin/phpunit --verbose --coverage-clover coverage-report.xmlsonar
+      
+      - name: fix code coverage paths
+        working-directory: ./coverage
+        run: |
+          sed -i 's/\/home\/runner\/work\/app-stripe-test\/app-stripe-test\//\/github\/workspace\//g' coverage.xml
+          sed -i 's/\/home\/runner\/work\/app-stripe-test\/app-stripe-test\//\/github\/workspace\//g' test-report.xml
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
