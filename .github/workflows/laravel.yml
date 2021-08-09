@@ -52,7 +52,6 @@ jobs:
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         with:
-          projectBaseDir: app
           args: >
               -Dsonar.organization=vlad-ko
               -Dsonar.projectKey=vlad-ko_app-stripe-test
