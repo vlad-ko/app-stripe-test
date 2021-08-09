@@ -51,8 +51,8 @@ jobs:
       
       - name: fix code coverage paths
         run: |
-          cp coverage.xml /github/workspace/coverage.xml
-          cp test-report.xml github/workspace/est-report.xml
+          cp ./coverage.xml /github/workspace/coverage.xml
+          cp ./test-report.xml github/workspace/est-report.xml
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
