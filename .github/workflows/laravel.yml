@@ -55,8 +55,8 @@ jobs:
           args: >
               -Dsonar.organization=vlad-ko
               -Dsonar.projectKey=vlad-ko_app-stripe-test
-              -Dsonar.php.coverage.reportPaths=coverage.xml
-              -Dsonar.php.tests.reportPath=test-report.xml
+              -Dsonar.php.coverage.reportPaths=reports/coverage.xml
+              -Dsonar.php.tests.reportPath=reports/test-report.xml
               -Dsonar.exclusions=vendor/**
               -Dsonar.verbose=true
         env:
