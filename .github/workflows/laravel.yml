@@ -47,23 +47,24 @@ jobs:
           php artisan db:seed
 
       - name: Run Complete Testsuite with Coverage
-        run: vendor/bin/phpunit --verbose --coverage-clover coverage-report.xmlsonar
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml --log-junit=test-report.xml
       
-      - name: fix code coverage paths
+      - name: copy files
         run: |
           cp ./coverage.xml /github/workspace/coverage.xml
-          cp ./test-report.xml github/workspace/est-report.xml
+          cp ./test-report.xml /github/workspace/test-report.xml
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         with:
+          projectBaseDir: app
           args: >
               -Dsonar.organization=vlad-ko
               -Dsonar.projectKey=vlad-ko_app-stripe-test
-              -Dsonar.php.coverage.reportPaths=coverage.xml
-              -Dsonar.php.tests.reportPath=test-report.xml
+              -Dsonar.php.coverage.reportPaths=./coverage.xml
+              -Dsonar.php.tests.reportPath=./test-report.xml
               -Dsonar.exclusions=vendor/**
-              -Dsonar.verbose=false
+              -Dsonar.verbose=true
         env:
               SONAR_TOKEN: 761a4d39983a27c6250ecb0840c8b2cc031e3da8   
 
