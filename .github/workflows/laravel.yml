@@ -69,5 +69,8 @@ jobs:
       - name: Upload overall coverage report
         run: bash <(curl -s https://codecov.io/bash) -f ./results/coverage.xml
 
-      - name: upload to Codacy
-        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r ./results/coverage.xml --api-token=c13c2fd73c9a457d9b76b162e009f353
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          api-token: ${{ secrets.CODACY_API_TOKEN }}
+          coverage-reports: ./results/coverage.xml
