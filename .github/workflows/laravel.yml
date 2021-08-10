@@ -47,24 +47,24 @@ jobs:
           php artisan db:seed
 
       - name: Run Complete Testsuite with Coverage
-        run: vendor/bin/phpunit --coverage-clover=clover.xml
+        run: vendor/bin/phpunit --coverage-clover=results/coverage.xml --junit-log=results/test-report.xml
 
-      # - name: Fix results files
-      #   run: sed -i -e "s%$GITHUB_WORKSPACE/%%g" *.xml
-      #   working-directory: results
+      - name: Fix results files
+        run: sed -i -e "s%$GITHUB_WORKSPACE/%%g" *.xml
+        working-directory: results
 
-      # - name: SonarCloud Scan
-      #   uses: sonarsource/sonarcloud-github-action@master
-      #   with:
-      #     args: >
-      #         -Dsonar.organization=vlad-ko
-      #         -Dsonar.projectKey=vlad-ko_app-stripe-test
-      #         -Dsonar.php.coverage.reportPaths=./results/coverage.xml
-      #         -Dsonar.php.tests.reportPath=./results/test-report.xml
-      #         -Dsonar.exclusions=vendor/**,tests/**
-      #         -Dsonar.verbose=false
-      #   env:
-      #         SONAR_TOKEN: 761a4d39983a27c6250ecb0840c8b2cc031e3da8   
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        with:
+          args: >
+              -Dsonar.organization=vlad-ko
+              -Dsonar.projectKey=vlad-ko_app-stripe-test
+              -Dsonar.php.coverage.reportPaths=./results/coverage.xml
+              -Dsonar.php.tests.reportPath=./results/test-report.xml
+              -Dsonar.exclusions=vendor/**,tests/**
+              -Dsonar.verbose=false
+        env:
+              SONAR_TOKEN: 761a4d39983a27c6250ecb0840c8b2cc031e3da8   
 
       - name: Upload overall coverage report
         run: bash <(curl -s https://codecov.io/bash) -f clover.xml
