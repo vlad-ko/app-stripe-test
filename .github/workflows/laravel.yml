@@ -47,7 +47,7 @@ jobs:
           php artisan db:seed
 
       - name: Run Complete Testsuite with Coverage
-        run: vendor/bin/phpunit --coverage-clover=coverage.xml
+        run: vendor/bin/phpunit --coverage-clover=clover.xml
 
       # - name: Fix results files
       #   run: sed -i -e "s%$GITHUB_WORKSPACE/%%g" *.xml
@@ -67,10 +67,10 @@ jobs:
       #         SONAR_TOKEN: 761a4d39983a27c6250ecb0840c8b2cc031e3da8   
 
       - name: Upload overall coverage report
-        run: bash <(curl -s https://codecov.io/bash) -f coverage.xml
+        run: bash <(curl -s https://codecov.io/bash) -f clover.xml
 
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
           project-token: ${{ secrets.CODACY_API_TOKEN }}
-          coverage-reports: coverage.xml
+          coverage-reports: clover.xml

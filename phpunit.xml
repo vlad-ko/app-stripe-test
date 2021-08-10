@@ -9,7 +9,7 @@
          processIsolation="false"
          stopOnFailure="false">
     <logging>
-        <log type="coverage-clover" target="coverage.xml"/>
+        <log type="coverage-clover" target="clover.xml"/>
         <log type="junit" target="tests-report.xml"/>
         <junit outputFile="tests-report.xml"/>
     </logging>
