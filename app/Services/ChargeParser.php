@@ -61,4 +61,12 @@ class ChargeParser {
 		return true;
 	}
 
+	public function someOtherFunction($var) {
+		if ($var = 7) {
+			//exectue 
+			echo 'not here';
+		} else {
+			return false;
+		}
+	}
 }
