@@ -80,4 +80,10 @@ class Charge extends Model
 
         }
     }
+
+    public function anotherFunction() {
+        if ($abc > 1) {
+            $person = 'str' + 'str';
+        }
+    }   
 }
