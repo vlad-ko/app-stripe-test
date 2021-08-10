@@ -47,11 +47,11 @@ jobs:
           php artisan db:seed
 
       - name: Run Complete Testsuite with Coverage
-        run: vendor/bin/phpunit --coverage-clover=./results/coverage.xml --log-junit=./results/test-report.xml
+        run: vendor/bin/phpunit --coverage-clover=coverage.xml
 
-      - name: Fix results files
-        run: sed -i -e "s%$GITHUB_WORKSPACE/%%g" *.xml
-        working-directory: results
+      # - name: Fix results files
+      #   run: sed -i -e "s%$GITHUB_WORKSPACE/%%g" *.xml
+      #   working-directory: results
 
       # - name: SonarCloud Scan
       #   uses: sonarsource/sonarcloud-github-action@master
@@ -67,10 +67,10 @@ jobs:
       #         SONAR_TOKEN: 761a4d39983a27c6250ecb0840c8b2cc031e3da8   
 
       - name: Upload overall coverage report
-        run: bash <(curl -s https://codecov.io/bash) -f ./results/coverage.xml
+        run: bash <(curl -s https://codecov.io/bash) -f coverage.xml
 
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
           api-token: ${{ secrets.CODACY_API_TOKEN }}
-          coverage-reports: ./results/coverage.xml
+          coverage-reports: coverage.xml
