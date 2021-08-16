@@ -69,15 +69,15 @@ jobs:
       - name: Upload overall coverage report
         run: bash <(curl -s https://codecov.io/bash) -f reults/coverage.xml
 
-      # - name: Run codacy-coverage-reporter
-      #   uses: codacy/codacy-coverage-reporter-action@v1
-      #   with:
-      #     project-token: ${{ secrets.CODACY_API_TOKEN }}
-      #     coverage-reports: coverage.xml
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_API_TOKEN }}
+          coverage-reports: results/coverage.xml
 
-      - name: Coveralls
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
-        run: |
-            composer global require php-coveralls/php-coveralls
-            php-coveralls --coverage_clover=build/logs/clover.xml -v
+      # - name: Coveralls
+      #   env:
+      #     COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
+      #   run: |
+      #       composer global require php-coveralls/php-coveralls
+      #       php-coveralls --coverage_clover=build/logs/clover.xml -v
