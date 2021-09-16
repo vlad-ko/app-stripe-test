@@ -56,7 +56,7 @@ jobs:
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
         env:
-              SONAR_TOKEN: $SONAR_CLOUD_TOKEN_1
+              SONAR_TOKEN: ${{secret.$SONAR_CLOUD_TOKEN_1}}
   
       - name: Upload overall coverage report
         run: bash <(curl -s https://codecov.io/bash) -f results/coverage.xml
