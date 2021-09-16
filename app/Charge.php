@@ -86,4 +86,14 @@ class Charge extends Model
             $person = 'str' + 'str';
         }
     }   
+
+    public function newFeatureFunction($param = 0) {
+        if ($param > 0) {
+            $val = 'positive';
+        } else {
+            $val = 'negative';
+        }
+
+        return $val;
+    }
 }
